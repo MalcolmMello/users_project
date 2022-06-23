@@ -1,18 +1,26 @@
-import { Model, DataTypes } from 'sequelize';
+import { Association, DataTypes, Model, NonAttribute, UUIDV4 } from 'sequelize';
 import { sequelize } from '../instances/pg';
+import { Address } from './Address';
 
-interface UserInstance extends Model {
-    user_id: number,
-    name: string,
-    email: string
-    password: string,
-    phone_number: string
-};
+export class User extends Model {
+    declare user_id: number;
+    declare name: string;
+    declare email: string;
+    declare password: string;
+    declare phone_number: string;
+    declare addresses?: NonAttribute<Address[]>;
+    declare static associations: {
+        addresses: Association<User, Address>
+    }
+}
 
-export const User = sequelize.define<UserInstance>("Users", {
+User.init(
+    {
         user_id: {
-            primaryKey: true,
-            type: DataTypes.INTEGER
+            type: DataTypes.UUID,
+            defaultValue: UUIDV4,
+            allowNull: false,
+            primaryKey: true
         },
         name: {
             type: DataTypes.STRING
@@ -26,8 +34,19 @@ export const User = sequelize.define<UserInstance>("Users", {
         phone_number: {
             type: DataTypes.STRING
         },
-    }, 
+        addresses: {
+            type: DataTypes.ARRAY,
+            primaryKey: true,
+            references: {
+                model: 'Address',
+                key: 'address_id'
+            }
+        }
+    },
     {
-        tableName: "users",
-        timestamps: false
-});
+        sequelize,
+        modelName: 'User'
+    }
+)
+
+User.hasMany(Address); 
