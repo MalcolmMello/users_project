@@ -1,3 +1,5 @@
+import "reflect-metadata";
+import "./db/dataSource";
 import express, { Request, Response } from 'express';
 
 const app = express();
@@ -6,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', async (req: Request, res: Response) => {
-    res.send("Olá, startup!")
+    res.send("Olá, startup!");
 });
 
 app.listen(5000, () => {
