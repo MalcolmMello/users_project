@@ -1,15 +1,14 @@
 import "reflect-metadata";
 import "./db/dataSource";
-import express, { Request, Response } from 'express';
+import express from 'express';
+import { routes } from "./routes";
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', async (req: Request, res: Response) => {
-    res.send("Olá, startup!");
-});
+app.use(routes);
 
 app.listen(5000, () => {
     console.log("Aplicação rodando na porta 5000");
