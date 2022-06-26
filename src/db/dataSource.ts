@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const entities = "./src/entities/*.ts";
+const migrations = "./src/db/migrations/*.ts";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -11,8 +13,8 @@ export const AppDataSource = new DataSource({
     username: process.env.TYPEORM_USERNAME as string,
     password: process.env.TYPEORM_PASSWORD as string,
     database: process.env.TYPEORM_DATABASE as string,
-    entities: ["./src/entities/*.ts"],
-    migrations: ["./src/db/migrations/*.ts"],
+    entities: [entities],
+    migrations: [migrations],
     logging: true,
     synchronize: true
 });

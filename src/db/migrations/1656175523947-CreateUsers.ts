@@ -23,14 +23,11 @@ export class CreateUsers1656175523947 implements MigrationInterface {
                     {
                         name: "phone_number",
                         type: "varchar"
-                    }
-                ],
-                foreignKeys: [
+                    },
                     {
-                        name: "fk_users_addresses",
-                        columnNames: ["address_id"],
-                        referencedTableName: "addresses",
-                        referencedColumnNames: ["id"]
+                        name: "created_at",
+                        type: "timestamp",
+                        default: "now()"
                     }
                 ]
             })
@@ -40,5 +37,4 @@ export class CreateUsers1656175523947 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("users");
     }
-
 }
