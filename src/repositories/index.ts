@@ -1,4 +1,4 @@
-import { AppDataSource } from "../db/dataSource";
+import {AppDataSource} from "../db/dataSource";
 import { Address } from "../entities/Addresses";
 import { User } from "../entities/User";
 

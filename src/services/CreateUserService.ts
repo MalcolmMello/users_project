@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import { hash } from "bcryptjs";
 import { userRepository } from "../repositories";
 
@@ -22,6 +23,10 @@ export class CreateUserService {
 
         await userRepository().save(user);
 
-        return user;
+        const token = jwt.sign({ email: user.email, id: user.id }, 'teste', { expiresIn: "1h" });
+
+        const result = { user, token };
+
+        return result;
     };
 };

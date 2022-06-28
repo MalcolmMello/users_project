@@ -2,7 +2,7 @@ import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn 
 import { v4 as uuid } from "uuid";
 import { User } from "./User";
 
-@Entity("addresses")
+@Entity("users_addresses")
 export class Address {
     @PrimaryColumn()
     id!: string;

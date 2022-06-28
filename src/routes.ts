@@ -3,6 +3,10 @@ import { CreateUserController } from "./controllers/CreateUserController";
 
 const routes = Router();
 
-routes.post("/users", new CreateUserController().handle);
+routes.get("/ping", (req, res) => {
+    res.send("pong")
+});
+
+routes.post("/user", new CreateUserController().handle);
 
 export { routes };
