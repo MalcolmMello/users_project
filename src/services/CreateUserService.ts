@@ -11,6 +11,12 @@ type CreateUser = {
 
 export class CreateUserService {
     async execute({ username, password, email, phone_number }: CreateUser) {
+        const hasAllData = username && password && email && phone_number;
+
+        if(!hasAllData) {
+            return new Error("Missing user's informations")
+        };
+        
         const existUser = await userRepository().findOneBy({ email });
 
         if(existUser) {
@@ -19,13 +25,13 @@ export class CreateUserService {
 
         const passwordHash = await hash(password, 8);
 
-        const user = userRepository().create({ username, password: passwordHash, email, phone_number });
+        const newUser = userRepository().create({ username, password: passwordHash, email, phone_number });
 
-        await userRepository().save(user);
+        await userRepository().save(newUser);
 
-        const token = jwt.sign({ email: user.email, id: user.id }, 'teste', { expiresIn: "1h" });
+        const token = jwt.sign({ email: newUser.email, id: newUser.id }, 'teste', { expiresIn: "1h" });
 
-        const result = { user, token };
+        const result = { username: newUser.username, email: newUser.email, phone_number: newUser.phone_number, id: newUser.id, token };
 
         return result;
     };
