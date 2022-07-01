@@ -14,7 +14,7 @@ export class CreateUserService {
         const hasAllData = username && password && email && phone_number;
 
         if(!hasAllData) {
-            return new Error("Missing user's informations")
+            return new Error("Missing user's informations");
         };
         
         const existUser = await userRepository().findOneBy({ email });
