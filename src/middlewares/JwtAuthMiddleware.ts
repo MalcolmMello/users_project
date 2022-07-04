@@ -9,6 +9,7 @@ const JwtAuthMiddleware = async (request: Request, response: Response, next: Nex
             throw new Error("Token is missing");
         }
 
+        'Bearer 65465465465654'
         const [authenticationType, token] = authorizationHeader.split(' ');
 
         if(authenticationType !== 'Bearer' || !token) {
