@@ -12,7 +12,7 @@ export class LoginUserService {
         const hasAllData = password && email;
 
         if(!hasAllData) {
-            return new Error("Missing user's informations")
+            return new Error("Missing user's informations");
         };
 
         const existingUser = await userRepository().findOneBy({ email });

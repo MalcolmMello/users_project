@@ -28,7 +28,7 @@ const JwtAuthMiddleware = async (request: Request, response: Response, next: Nex
             console.log(error);
         }
     } catch (error) {
-        console.log(error);
+        return response.status(401).end();
     }
 }
 
