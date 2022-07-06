@@ -5,6 +5,8 @@ import { CreateAddressController } from "./controllers/CreateAddressController";
 import { DeleteAddressController } from "./controllers/DeleteAddressController";
 import { GetAllAddressesController } from "./controllers/GetAllAddressesController";
 import { GetOneAddressController } from "./controllers/GetOneAddressController";
+import { UpdateAddressController } from "./controllers/UpdateAddressController";
+
 import JwtAuthMiddleware from "./middlewares/JwtAuthMiddleware";
 
 const routes = Router();
@@ -14,10 +16,10 @@ routes.post("/signup", new CreateUserController().handle);
 routes.post("/signin", new LoginUserController().handle);
 
 /* addresses */
-routes.post("/address", JwtAuthMiddleware, new CreateAddressController().handle);
 routes.get("/address", JwtAuthMiddleware, new GetAllAddressesController().handle);
 routes.get("/address/:id", JwtAuthMiddleware, new GetOneAddressController().handle);
-routes.put("/address/:id", JwtAuthMiddleware,)
+routes.post("/address", JwtAuthMiddleware, new CreateAddressController().handle);
+routes.put("/address/:id", JwtAuthMiddleware, new UpdateAddressController().handle);
 routes.delete("/address/:id", JwtAuthMiddleware, new DeleteAddressController().handle);
 
 
