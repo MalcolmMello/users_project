@@ -13,5 +13,5 @@ export class CreateUserController {
         };
 
         return response.json(result);
-    }
+    };
 };
