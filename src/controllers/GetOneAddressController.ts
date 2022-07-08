@@ -4,13 +4,13 @@ import { GetOneAddressService } from "../services/GetOneAddressService";
 export class GetOneAddressController {
     async handle(request: Request, response: Response) {
         const { id }  = request.params;
-
+        const userId = request.userId;
         const getOneAddressService = new GetOneAddressService();
 
-        const result = await getOneAddressService.execute(id);
+        const result = await getOneAddressService.execute({id, userId});
 
         if(result instanceof Error) {
-            response.status(400).json(result.message);
+            return response.status(400).json(result.message);
         };
 
         return response.json(result);

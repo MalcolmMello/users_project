@@ -16,7 +16,7 @@ type UpdateAddress = {
 
 export class UpdateAddressService {
     async execute({ userId, id, number, street, district, zip_code, city, state, country, longitude, latitude }: UpdateAddress) {
-        const hasAnyData = userId || number || street || district || zip_code || city || state || country || longitude || latitude;
+        const hasAnyData = number || street || district || zip_code || city || state || country || longitude || latitude;
 
         if(!hasAnyData) {
             return new Error("Missing new address data");

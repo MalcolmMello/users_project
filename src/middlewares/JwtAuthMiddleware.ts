@@ -19,16 +19,20 @@ const JwtAuthMiddleware = async (request: Request, response: Response, next: Nex
             const decodedData = jwt.verify(token, 'teste');
 
             if(typeof decodedData !== 'object' || !decodedData.id) {
-                throw new Error("Invalid token");
+                return response.json({ message: "Invalid Token" });
             };
 
             request.userId = decodedData.id;
             next();
         } catch (error) {
-            console.log(error);
+            if(error instanceof Error) {
+                return response.json({ message: error.message });     
+            } else {
+                return response.json({ message: "Something went wrong" });
+            }
         }
     } catch (error) {
-        return response.status(401).end();
+        return response.json(error).end();
     }
 }
 

@@ -4,14 +4,16 @@ import { DeleteAddressService } from '../services/DeleteAddressService';
 export class DeleteAddressController {
     async handle(request: Request, response: Response) {
         const { id } = request.params;
+        const userId = request.userId;
+
         const deleteAddressService = new DeleteAddressService;
         
-        const result = await deleteAddressService.execute(id);
+        const result = await deleteAddressService.execute({ id, userId });
 
         if(result instanceof Error) {
-            response.status(400).json(result.message);
+            return response.status(400).json(result.message);
         };
 
-        response.json(result);
+        return response.json(result);
     };
 }
