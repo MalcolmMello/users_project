@@ -6,13 +6,14 @@ import { DeleteAddressController } from "./controllers/DeleteAddressController";
 import { GetAllAddressesController } from "./controllers/GetAllAddressesController";
 import { GetOneAddressController } from "./controllers/GetOneAddressController";
 import { UpdateAddressController } from "./controllers/UpdateAddressController";
+import AuthValidator from "./validators/AuthValidator";
 
 import JwtAuthMiddleware from "./middlewares/JwtAuthMiddleware";
 
 const routes = Router();
 
 /* users */
-routes.post("/signup", new CreateUserController().handle);
+routes.post("/signup", AuthValidator.signup, new CreateUserController().handle);
 routes.post("/signin", new LoginUserController().handle);
 
 /* addresses */

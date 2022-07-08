@@ -1,10 +1,16 @@
 import { Request, Response } from 'express';
 import { CreateUserService } from '../services/CreateUserService';
-
+import { validationResult } from 'express-validator';
 
 export class CreateUserController {
     async handle(request: Request, response: Response) {
         const { username, password, email, phone_number } = request.body;
+        const errors = validationResult(request);
+
+        if(!errors.isEmpty()) {
+            return response.json({ error: errors.mapped() });
+        };
+        
         const createUserService = new CreateUserService();
         const result = await createUserService.execute({ username, password, email, phone_number });
 
