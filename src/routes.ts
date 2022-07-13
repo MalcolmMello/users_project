@@ -7,6 +7,7 @@ import { GetAllAddressesController } from "./controllers/GetAllAddressesControll
 import { GetOneAddressController } from "./controllers/GetOneAddressController";
 import { UpdateAddressController } from "./controllers/UpdateAddressController";
 import AuthValidator from "./validators/AuthValidator";
+import AddressValidator from "./validators/AddressValidator";
 
 import JwtAuthMiddleware from "./middlewares/JwtAuthMiddleware";
 
@@ -19,7 +20,7 @@ routes.post("/signin", new LoginUserController().handle);
 /* addresses */
 routes.get("/address", JwtAuthMiddleware, new GetAllAddressesController().handle);
 routes.get("/address/:id", JwtAuthMiddleware, new GetOneAddressController().handle);
-routes.post("/address", JwtAuthMiddleware, new CreateAddressController().handle);
+routes.post("/address", JwtAuthMiddleware, AddressValidator.createAddress, new CreateAddressController().handle);
 routes.put("/address/:id", JwtAuthMiddleware, new UpdateAddressController().handle);
 routes.delete("/address/:id", JwtAuthMiddleware, new DeleteAddressController().handle);
 
