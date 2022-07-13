@@ -1,7 +1,7 @@
 import { checkSchema } from "express-validator";
 
 const AuthValidator = {
-    signup: checkSchema({
+        signup: checkSchema({
             username: {
                 isLength: {
                     options: { min: 4 }
@@ -24,6 +24,20 @@ const AuthValidator = {
                 isMobilePhone: { options: "pt-BR" },
                 notEmpty: true,
                 errorMessage: "Número de telefone inválido"
+            }
+        }),
+        signin: checkSchema({
+            email: {
+                isEmail: true,
+                normalizeEmail: true,
+                notEmpty: true,
+                errorMessage: "Email inválido."
+            },
+            password: {
+                isStrongPassword: {
+                    options: { minLength: 5 }
+                },
+                errorMessage: "Senha inválida."
             }
         })
 }

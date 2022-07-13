@@ -15,7 +15,7 @@ const routes = Router();
 
 /* users */
 routes.post("/signup", AuthValidator.signup, new CreateUserController().handle);
-routes.post("/signin", new LoginUserController().handle);
+routes.post("/signin", AuthValidator.signin, new LoginUserController().handle);
 
 /* addresses */
 routes.get("/address", JwtAuthMiddleware, new GetAllAddressesController().handle);
