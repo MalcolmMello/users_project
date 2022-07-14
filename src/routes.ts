@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { LoginUserController } from "./controllers/LoginUserController";
+import { GetUserInfoController } from "./controllers/GetUserInfoController";
 import { CreateAddressController } from "./controllers/CreateAddressController";
 import { DeleteAddressController } from "./controllers/DeleteAddressController";
 import { GetAllAddressesController } from "./controllers/GetAllAddressesController";
@@ -16,6 +17,7 @@ const routes = Router();
 /* users */
 routes.post("/signup", AuthValidator.signup, new CreateUserController().handle);
 routes.post("/signin", AuthValidator.signin, new LoginUserController().handle);
+routes.get("/user", JwtAuthMiddleware, new GetUserInfoController().handle);
 
 /* addresses */
 routes.get("/address", JwtAuthMiddleware, new GetAllAddressesController().handle);
