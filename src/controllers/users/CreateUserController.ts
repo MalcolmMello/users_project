@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { CreateUserService } from '../services/CreateUserService';
+import { CreateUserService } from '../../services/CreateUserService';
 import { validationResult } from 'express-validator';
-import { api } from '../helpers/IsAddressReal';
+import { api } from '../../helpers/IsAddressReal';
 
 export class CreateUserController {
     async handle(request: Request, response: Response) {

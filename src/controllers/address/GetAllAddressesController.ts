@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetAllAddressesService } from "../services/GetAllAddressesService";
+import { GetAllAddressesService } from "../../services/GetAllAddressesService";
 
 export class GetAllAddressesController {
     async handle(request: Request, response: Response) {

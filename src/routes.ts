@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { CreateUserController } from "./controllers/CreateUserController";
-import { LoginUserController } from "./controllers/LoginUserController";
-import { GetUserInfoController } from "./controllers/GetUserInfoController";
-import { CreateAddressController } from "./controllers/CreateAddressController";
-import { DeleteAddressController } from "./controllers/DeleteAddressController";
-import { GetAllAddressesController } from "./controllers/GetAllAddressesController";
-import { GetOneAddressController } from "./controllers/GetOneAddressController";
-import { UpdateAddressController } from "./controllers/UpdateAddressController";
+import { CreateUserController } from "./controllers/users/CreateUserController";
+import { LoginUserController } from "./controllers/users/LoginUserController";
+import { GetUserInfoController } from "./controllers/users/GetUserInfoController";
+import { CreateAddressController } from "./controllers/address/CreateAddressController";
+import { DeleteAddressController } from "./controllers/address/DeleteAddressController";
+import { GetAllAddressesController } from "./controllers/address/GetAllAddressesController";
+import { GetOneAddressController } from "./controllers/address/GetOneAddressController";
+import { UpdateAddressController } from "./controllers/address/UpdateAddressController";
 import AuthValidator from "./validators/AuthValidator";
 import AddressValidator from "./validators/AddressValidator";
 
