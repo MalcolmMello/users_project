@@ -1,4 +1,4 @@
-import { addressRepository } from "../repositories";
+import { addressRepository } from "../../repositories";
 
 type UpdateAddress = {
     userId: string,

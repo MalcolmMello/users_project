@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { DeleteAddressService } from '../../services/DeleteAddressService';
+import { DeleteAddressService } from '../../services/address/DeleteAddressService';
 
 export class DeleteAddressController {
     async handle(request: Request, response: Response) {

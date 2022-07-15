@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
-import { CreateAddressService } from '../../services/CreateAddressService';
+import { CreateAddressService } from '../../services/address/CreateAddressService';
 
 export class CreateAddressController {
     async handle(request: Request, response: Response) {

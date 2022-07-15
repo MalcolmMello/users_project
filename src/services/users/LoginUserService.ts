@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { compare } from "bcryptjs";
-import { userRepository } from "../repositories";
+import { userRepository } from "../../repositories";
 
 type LoginUser = {
     email: string,

@@ -1,4 +1,4 @@
-import { userRepository } from "../repositories";
+import { userRepository } from "../../repositories";
 
 export class GetUserInfoService {
     async execute(id: string) {

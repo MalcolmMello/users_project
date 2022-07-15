@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetOneAddressService } from "../../services/GetOneAddressService";
+import { GetOneAddressService } from "../../services/address/GetOneAddressService";
 
 export class GetOneAddressController {
     async handle(request: Request, response: Response) {

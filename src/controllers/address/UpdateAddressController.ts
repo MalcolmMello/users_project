@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UpdateAddressService } from "../../services/UpdateAddressService";
+import { UpdateAddressService } from "../../services/address/UpdateAddressService";
 
 export class UpdateAddressController {
     async handle(request: Request, response: Response) {

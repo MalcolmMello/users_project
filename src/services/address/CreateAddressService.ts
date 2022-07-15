@@ -1,6 +1,6 @@
-import { addressRepository } from "../repositories";
-import { userRepository } from "../repositories";
-import { api } from '../helpers/IsAddressReal';
+import { addressRepository } from "../../repositories";
+import { userRepository } from "../../repositories";
+import { api } from '../../helpers/IsAddressReal';
 
 type CreateAddress = {
     userId: string,

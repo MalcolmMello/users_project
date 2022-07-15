@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { hash } from "bcryptjs";
-import { userRepository } from "../repositories";
+import { userRepository } from "../../repositories";
 
 type CreateUser = {
     username: string,
