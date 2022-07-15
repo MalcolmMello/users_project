@@ -73,5 +73,4 @@ export class CreateCompaniesAddresses1657916562597 implements MigrationInterface
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("companies_addresses");
     }
-
 }

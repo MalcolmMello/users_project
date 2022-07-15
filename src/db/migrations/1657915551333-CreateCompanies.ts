@@ -35,6 +35,11 @@ export class CreateCompanies1657915551333 implements MigrationInterface {
                     {
                         name: "cover",
                         type: "varchar"
+                    },
+                    {
+                        name: "created_at",
+                        type: "timestamp",
+                        default: "now()"
                     }
                 ]
             })
@@ -44,5 +49,4 @@ export class CreateCompanies1657915551333 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("companies");
     }
-
 }
