@@ -1,16 +1,16 @@
 import { Router } from "express";
-import { CreateUserController } from "./controllers/users/CreateUserController";
-import { LoginUserController } from "./controllers/users/LoginUserController";
-import { GetUserInfoController } from "./controllers/users/GetUserInfoController";
-import { CreateAddressController } from "./controllers/address/CreateAddressController";
-import { DeleteAddressController } from "./controllers/address/DeleteAddressController";
-import { GetAllAddressesController } from "./controllers/address/GetAllAddressesController";
-import { GetOneAddressController } from "./controllers/address/GetOneAddressController";
-import { UpdateAddressController } from "./controllers/address/UpdateAddressController";
-import AuthValidator from "./validators/AuthValidator";
-import AddressValidator from "./validators/AddressValidator";
+import { CreateUserController } from "./app/controllers/users/CreateUserController";
+import { LoginUserController } from "./app/controllers/users/LoginUserController";
+import { GetUserInfoController } from "./app/controllers/users/GetUserInfoController";
+import { CreateAddressController } from "./app/controllers/address/CreateAddressController";
+import { DeleteAddressController } from "./app/controllers/address/DeleteAddressController";
+import { GetAllAddressesController } from "./app/controllers/address/GetAllAddressesController";
+import { GetOneAddressController } from "./app/controllers/address/GetOneAddressController";
+import { UpdateAddressController } from "./app/controllers/address/UpdateAddressController";
+import AuthValidator from "./app/validators/AuthValidator";
+import AddressValidator from "./app/validators/AddressValidator";
 
-import JwtAuthMiddleware from "./middlewares/JwtAuthMiddleware";
+import JwtAuthMiddleware from "./app/middlewares/JwtAuthMiddleware";
 
 const routes = Router();
 
