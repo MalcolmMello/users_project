@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const entities = "./src/entities/*.ts";
+const entities = "./src/app/entities/*.ts";
 const migrations = "./src/db/migrations/*.ts";
 
 export const AppDataSource = new DataSource({

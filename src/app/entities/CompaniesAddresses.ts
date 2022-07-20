@@ -8,7 +8,7 @@ export class CompanyAddress {
     id!: string;
     
     @Column()
-    user_id!: string;
+    company_id!: string;
 
     @ManyToOne(() => Companies)
     @JoinColumn({ name: "company_id" })

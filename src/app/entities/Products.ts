@@ -18,6 +18,9 @@ export class Products {
     product_name!: string;
 
     @Column()
+    description!: string;
+
+    @Column()
     front_cover!: string;
 
     @Column()
