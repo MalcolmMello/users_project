@@ -39,7 +39,7 @@ export class CompanyAddress {
     latitude!: number;
 
     @Column()
-    longitude!: number;
+    longitude!:  number;
 
     @CreateDateColumn()
     created_at!: string;
