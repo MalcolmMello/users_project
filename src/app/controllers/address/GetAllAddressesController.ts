@@ -10,7 +10,7 @@ export class GetAllAddressesController {
         const result = await getAllAddressesService.execute(id);
 
         if(result instanceof Error) {
-            response.status(400).json(result.message);
+            return response.status(400).json(result.message);
         };
 
         return response.json(result);
