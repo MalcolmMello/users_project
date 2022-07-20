@@ -7,7 +7,7 @@ export class GetProductByIdController {
 
         const getProductByIdService = new GetProductByIdService();
 
-        const result = getProductByIdService.execute(id);
+        const result = await getProductByIdService.execute(id);
 
         if(result instanceof Error) {
             response.status(400).json(result.message);
