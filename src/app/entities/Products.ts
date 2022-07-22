@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { CategoriesProducts } from "./CategoriesProducts";
+import { CategoryProduct } from "./CategoriesProducts";
 import { Companies } from "./Companies";
 
 @Entity("companies_products")
@@ -15,8 +15,8 @@ export class Products {
     @JoinColumn({ name: "company_id" })
     companies!: Companies; 
 
-    @OneToMany(type => CategoriesProducts, products => Products)
-    categories_products!: CategoriesProducts[]
+    @OneToMany(type => CategoryProduct, products => Products)
+    categories_products!: CategoryProduct[]
 
     @Column()
     product_name!: string;
