@@ -1,6 +1,6 @@
-import { Entity, Column, PrimaryColumn, OneToMany, JoinColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, ManyToMany, JoinTable } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { Products } from "./Products";
+import { Categories } from "./Categories";
 
 @Entity("companies")
 export class Companies {
@@ -19,6 +19,10 @@ export class Companies {
     @Column()
     phone_number!: string;
 
+    @ManyToMany(type => Categories)
+    @JoinTable()
+    categories!: Categories[];
+
     @Column()
     logo!: string;
 
@@ -27,7 +31,7 @@ export class Companies {
 
     constructor() {
         if(!this.id) {
-            this.id = uuid()
+            this.id = uuid();
         }
     }
 }
