@@ -19,7 +19,7 @@ export class Companies {
     @Column()
     phone_number!: string;
 
-    @ManyToMany(type => Categories)
+    @ManyToMany(type => Categories, { eager: true })
     @JoinTable()
     categories!: Categories[];
 
