@@ -5,6 +5,7 @@ import addressRoutes from './routes/address';
 import userRoutes from './routes/user';
 import companiesRoutes from './routes/companies';
 import productsRoutes from './routes/products';
+import { addProductsCategories } from "./productsScript";
 
 const app = express();
 
@@ -20,3 +21,4 @@ app.listen(5000, () => {
     console.log("Aplicação rodando na porta 5000");
 });
 
+setTimeout(() => { addProductsCategories() }, 2000);

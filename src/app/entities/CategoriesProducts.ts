@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Products } from "./Products";
 
@@ -9,9 +9,9 @@ export class CategoryProduct {
     
     @Column()
     category_name!: string;
-    
-    @ManyToOne(type => Products, categoriesproducts => CategoryProduct)
-    products!: Products; 
+
+    @OneToMany(type => Products, categoryproduct => CategoryProduct)
+    products!: Products[]
 
     constructor() {
         if(!this.id) {

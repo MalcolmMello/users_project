@@ -15,8 +15,8 @@ export class Products {
     @JoinColumn({ name: "company_id" })
     companies!: Companies; 
 
-    @OneToMany(type => CategoryProduct, products => Products)
-    categories_products!: CategoryProduct[]
+    @ManyToOne(type => CategoryProduct, products => Products)
+    category_product!: CategoryProduct
 
     @Column()
     product_name!: string;

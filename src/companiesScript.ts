@@ -1,4 +1,3 @@
-import { Companies } from "./app/entities/Companies";
 import { companiesRepository } from "./app/repositories"
 
 
