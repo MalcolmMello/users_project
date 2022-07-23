@@ -1,4 +1,4 @@
-import { companiesRepository, productsRepository } from "../../repositories";
+import { companiesRepository, productsRepository, productsCategoriesRepository } from "../../repositories";
 
 export class GetProductsByCompanyIdService {
     async execute(id: string) {
@@ -20,9 +20,19 @@ export class GetProductsByCompanyIdService {
             return new Error("No products from that company.");
         };
 
+        const resultProducts = []
+
+        for(let product of products) {
+            const categories = await productsCategoriesRepository().findOneBy({ id: product.categoryProductId });
+            const category_name = categories?.category_name;
+            resultProducts.push({
+                ...product, category_name
+            });
+        };
+
         const result = {
             company: company.company_name,
-            products
+            resultProducts
         }
 
         return result;
