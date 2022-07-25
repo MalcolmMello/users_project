@@ -33,7 +33,7 @@ export class GetProductsByCompanyIdService {
         const result = {
             company: company.company_name,
             resultProducts
-        }
+        };
 
         return result;
     }

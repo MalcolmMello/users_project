@@ -6,7 +6,6 @@ import userRoutes from './routes/user';
 import companiesRoutes from './routes/companies';
 import productsRoutes from './routes/products';
 import searchRoutes from './routes/search';
-import { addProductsCategories } from "./productsScript";
 
 const app = express();
 
